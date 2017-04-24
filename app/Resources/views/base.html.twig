@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta content='text/html' http-equiv='Content-Type'>
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' name='viewport'>
+
+        <title>{% block title %}Pictura{% endblock %}</title>
+
+        {% block stylesheets %}
+        {% endblock %}
+
+        {% stylesheets '@AppBundle/Resources/public/genericons/genericons.css' output='bundles/app/styles/genericons.css' filter='cssrewrite'%}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" media='all'/>
+        {% endstylesheets %}
+        {% stylesheets '@AppBundle/Resources/public/style.scss' output='bundles/app/styles/style.css' filter='cssrewrite'%}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" media='all'/>
+        {% endstylesheets %}
+
+        {% stylesheets
+        output='bundles/app/styles/fonts/basictitlefont.ttf'
+        '@AppBundle/Resources/public/fonts/basictitlefont.ttf' filter='cssrewrite'
+        %}{% endstylesheets %}
+        {% stylesheets
+        output='bundles/app/styles/fonts/swscrpc.ttf'
+        '@AppBundle/Resources/public/fonts/swscrpc.ttf' filter='cssrewrite'
+        %}{% endstylesheets %}
+        <style>
+            @font-face {
+                font-family: swscrpc;
+                src: url({{asset('bundles/app/styles/fonts/swscrpc.ttf')}}) format('truetype');
+            }
+
+            @font-face {
+                font-family: Basic Title Font;
+                src: url({{asset('bundles/app/styles/fonts/basictitlefont.ttf')}}) format('truetype');
+            }
+        </style>
+{#      <meta content='website' property='og:type'>
+        <meta content='Fukasawa' property='og:title'>
+        <meta content='Just another WordPress site' property='og:description'>
+        <meta content='http://www.andersnoren.se/themes/fukasawa/' property='og:url'>
+        <meta content='Fukasawa' property='og:site_name'>
+        <meta content='https://s0.wp.com/i/blank.jpg' property='og:image'>
+        <meta content='en_US' property='og:locale'>
+#}
+    </head>
+    <body class='home blog wp-is-not-mobile infinite-scroll'>
+        <!-- /mobile-navigation -->
+        <div class='mobile-navigation'>
+            <ul class='mobile-menu'>
+                <li class='menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-6' id='menu-item-6'>
+                    <a href='{{ menu.about.url }}'>{{ menu.about.title }}</a>
+                </li>
+                <li class='menu-item menu-item-type-post_type menu-item-object-page menu-item-16' id='menu-item-16'>
+                    <a href='{{ menu.contacts.url }}'>{{ menu.contacts.title }}</a>
+                </li>
+                <li class='menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-17' id='menu-item-17'>
+                    <a href='{{ menu.exhibitions.url }}'>{{ menu.exhibitions.title }}</a>
+                </li>
+                <li class='menu-item menu-item-type-post_type menu-item-object-page menu-item-14' id='menu-item-14'>
+                    <a href='{{ menu.reviews.url }}'>{{ menu.reviews.title }}</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- /sidebar -->
+        <div class='sidebar'>
+            <h1 class='blog-title'>
+                <a href='/' rel='/'>Pictura</a>
+            </h1>
+            <a class='nav-toggle hidden' href='#' title='Click to view the navigation'>
+                <div class='bars'>
+                    <div class='bar'></div>
+                    <div class='bar'></div>
+                    <div class='bar'></div>
+                    <div class='clear'></div>
+                </div>
+                <p>
+                    <span class='menu'>Menu</span>
+                    <span class='close'>Close</span>
+                </p>
+            </a>
+            <ul class='main-menu'>
+                <li class='menu-item menu-item-type-post_type menu-item-object-page menu-item-6'>
+                    <a href='{{ menu.about.url }}'>{{ menu.about.title }}</a>
+                </li>
+                <li class='menu-item menu-item-type-post_type menu-item-object-page menu-item-16'>
+                    <a href='{{ menu.contacts.url }}'>{{ menu.contacts.title }}</a>
+                </li>
+                <li class='menu-item menu-item-type-custom menu-item-object-page menu-item-17'>
+                    <a href='{{ menu.exhibitions.url }}'>{{ menu.exhibitions.title }}</a>
+                </li>
+                <li class='menu-item menu-item-type-post_type menu-item-object-page menu-item-14'>
+                    <a href='{{ menu.reviews.url }}'>{{ menu.reviews.title }}</a>
+                </li>
+            </ul>
+            <div class='widgets'>
+                <div class='widget widget_text'>
+                    <div class='widget-content'>
+                        <div class='textwidget'>
+                            <p>Добро пожаловать на сайт Pictura. Меня зовут Ирина. Я — семейный фотограф. Приятного просмотра!</p>
+                            <p>
+                                Содействие в разработке сайта —
+                                <a href='https://vk.com/andreysum'>Андрей Сумцов</a>.
+                                <a href='http://www.andersnoren.se/themes/fukasawa/'>Fukasawa</a>.
+                            </p>
+                        </div>
+                    </div>
+                    <div class='clear'></div>
+                </div>
+                <div class='widget widget_categories'>
+                    <div class='widget-content'>
+                        <ul>
+                            <li class='cat-item cat-item-14'>
+                                <a href='http://www.andersnoren.se/themes/fukasawa/category/architecture/'>family</a>
+                            </li>
+                            <li class='cat-item cat-item-3'>
+                                <a href='http://www.andersnoren.se/themes/fukasawa/category/design/'>portrait</a>
+                            </li>
+                            <li class='cat-item cat-item-10'>
+                                <a href='http://www.andersnoren.se/themes/fukasawa/category/fashion/'>children</a>
+                            </li>
+                            <li class='cat-item cat-item-27'>
+                                <a href='http://www.andersnoren.se/themes/fukasawa/category/furniture/'>wedding</a>
+                            </li>
+                            <li class='cat-item cat-item-15'>
+                                <a href='http://www.andersnoren.se/themes/fukasawa/category/interior-design/'>albums</a>
+                            </li>
+                            <li class='cat-item cat-item-6'>
+                                <a href='http://www.andersnoren.se/themes/fukasawa/category/living/'>creative search</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class='clear'></div>
+                </div>
+            </div>
+            <div class='credits'>
+                <p>
+                    © 2017
+                    <a href='http://www.andersnoren.se/themes/fukasawa/'>Fukasawa</a>.
+                </p>
+                <p>
+                    Powered by
+                    <a href='http://www.wordpress.org'>WordPress</a>.
+                </p>
+                <p>
+                    Theme by
+                    <a href='http://www.andersnoren.se'>Anders Norén</a>.
+                </p>
+            </div>
+            <div class='clear'></div>
+        </div>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+
+        {% javascripts '@AppBundle/Resources/public/js/jquery/jquery.js' output='bundles/app/scripts/jquery/jquery.js' filter='cssrewrite'%}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% javascripts '@AppBundle/Resources/public/js/masonry/masonry.min.js' output='bundles/app/scripts/masonry/masonry.min.js' filter='cssrewrite'%}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% javascripts '@AppBundle/Resources/public/js/global.js' output='bundles/app/scripts/global.js' filter='cssrewrite'%}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+    </body>
+</html>
