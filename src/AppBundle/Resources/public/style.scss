@@ -761,13 +761,20 @@ body a, .widget_fukasawa_recent_posts a:hover .title, .widget_fukasawa_recent_co
 .posts {
   overflow: visible !important;
   position: relative;
+  width: 1200px;
+  margin: 0 auto;
   .post-container {
-    width: 33.33333%;
+    width: 290px;
     padding: 10px;
     overflow: hidden;
+    &.central {
+      width: 580px;
+      height: 580px;
+    }
   }
   .post, .page {
     width: 100%;
+    min-height: 270px;
     padding: 16px;
     background: #fff;
     position: relative;

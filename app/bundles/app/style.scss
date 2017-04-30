@@ -186,8 +186,8 @@ img {
 }
 
 .content {
-  width: 1200px;
-  max-width: 86%;
+  //width: 1200px;
+  //max-width: 86%;
   margin: 40px auto 50px;
   &.thin {
     width: 973px;
@@ -771,8 +771,9 @@ body a, .widget_fukasawa_recent_posts a:hover .title, .widget_fukasawa_recent_co
 .posts {
   overflow: visible !important;
   position: relative;
+  width: 1200px;
   .post-container {
-    width: 33.33333%;
+    width: 290px;
     padding: 10px;
     overflow: hidden;
   }
@@ -2149,7 +2150,7 @@ img#wpstats {
 .no-js {
   .posts {
     .post-container {
-      width: 508px;
+      width: 1200px;
       max-width: 100%;
       margin: 0 auto;
     }

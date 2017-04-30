@@ -4,149 +4,35 @@
     <div id="wrapper" class="wrapper">
         <div id="content">
             <div class='posts' id='posts'>
-                <div class='post-container'>
-                    <div class='post-128 post type-post status-publish format-gallery hentry category-design category-interior-design tag-naoto-fukasawa post_format-post-format-gallery' id='post-128'>
-                        <div class='featured-media'>
-                            <img alt='nf-6' class='attachment-post-thumb size-post-thumb' height='313' sizes='(max-width: 508px) 100vw, 508px' src='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/nf-6-508x313.jpg' srcset='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/nf-6-508x313.jpg 508w, http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/nf-6.jpg 973w' width='508'>
-                            <img alt='nf-5' class='attachment-post-thumb size-post-thumb' height='313' sizes='(max-width: 508px) 100vw, 508px' src='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/nf-5-508x313.jpg' srcset='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/nf-5-508x313.jpg 508w, http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/nf-5.jpg 973w' width='508'>
-                            <img alt='nf-4' class='attachment-post-thumb size-post-thumb' height='313' sizes='(max-width: 508px) 100vw, 508px' src='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/nf-4-508x313.jpg' srcset='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/nf-4-508x313.jpg 508w, http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/nf-4.jpg 973w' width='508'>
-                            <img alt='nf-3' class='attachment-post-thumb size-post-thumb' height='313' sizes='(max-width: 508px) 100vw, 508px' src='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/nf-3-508x313.jpg' srcset='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/nf-3-508x313.jpg 508w, http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/nf-3.jpg 973w' width='508'>
-                            <img alt='nf-2' class='attachment-post-thumb size-post-thumb' height='313' sizes='(max-width: 508px) 100vw, 508px' src='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/nf-2-508x313.jpg' srcset='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/nf-2-508x313.jpg 508w, http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/nf-2.jpg 973w' width='508'>
-                            <img alt='nf-1' class='attachment-post-thumb size-post-thumb' height='313' sizes='(max-width: 508px) 100vw, 508px' src='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/nf-1-508x313.jpg' srcset='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/nf-1-508x313.jpg 508w, http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/nf-1.jpg 973w' width='508'>
-                            <img alt='nf-7' class='attachment-post-thumb size-post-thumb' height='313' sizes='(max-width: 508px) 100vw, 508px' src='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/nf-7-508x313.jpg' srcset='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/nf-7-508x313.jpg 508w, http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/nf-7.jpg 973w' width='508'>
-
+                {% for post in posts %}
+                    {% if post.type == 'img' %}
+                        <div class='post-container'>
+                            <div class='post'>
+                                <div class='featured-media'>
+                                    <img src="{{ image('bundles/app/images/index/' ~ post.content).zoomCrop('290', '290') }}"/>
+                                </div>
+                            </div>
                         </div>
-                        <!-- /featured-media -->
-                        <div class='post-header'>
-                            Путешествие в детское счастье!
+                    {% endif %}
+                    {% if post.type == 'c_img' %}
+                        <div class='post-container central'>
+                            <div class='post'>
+                                <div class='featured-media'>
+                                    <img src="{{ image('bundles/app/images/index/' ~ post.content).zoomCrop('590', '590') }}"/>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <!-- /post-header -->
-                <!-- /post -->
-                <!-- /post-container -->
-                <div class='post-container'>
-                    <div class='post-125 post type-post status-publish format-image has-post-thumbnail hentry category-design category-furniture category-interior-design tag-alfred post_format-post-format-image' id='post-125'>
-                        <div class='featured-media'>
-                            <img alt='Alfred Magazine Rack' class='attachment-post-thumb size-post-thumb wp-post-image' height='678' sizes='(max-width: 508px) 100vw, 508px' src='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/alfred-magazine-rack-508x678.jpg' srcset='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/alfred-magazine-rack-508x678.jpg 508w, http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/alfred-magazine-rack.jpg 973w' width='508'>
-                            <a class='post-overlay' href='http://www.andersnoren.se/themes/fukasawa/alfred-magazine-rack/' rel='bookmark' title='Alfred Magazine Rack'>
-                                <p class='view'>View →</p>
-                            </a>
+                    {% endif %}
+                    {% if post.type == 'text' %}
+                        <div class='post-container'>
+                            <div class='post'>
+                                <div class='post-excerpt'>
+                                    <p>{{ post.content }}</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <!-- /featured-media -->
-                <!-- /post -->
-                <!-- /post-container -->
-                <div class='post-container'>
-                    <div class='post-122 post type-post status-publish format-image has-post-thumbnail hentry category-design category-furniture category-interior-design tag-babela tag-tacchini post_format-post-format-image' id='post-122'>
-                        <div class='featured-media'>
-                            <img alt='babela-armchair' class='attachment-post-thumb size-post-thumb wp-post-image' height='483' sizes='(max-width: 508px) 100vw, 508px' src='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/babela-armchair-508x483.jpg' srcset='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/babela-armchair-300x285.jpg 300w, http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/babela-armchair-508x483.jpg 508w, http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/babela-armchair.jpg 973w' width='508'>
-                            <a class='post-overlay' href='http://www.andersnoren.se/themes/fukasawa/babela-armchair/' rel='bookmark' title='Babela Armchair'>
-                                <p class='view'>View →</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- /featured-media -->
-                <!-- /post -->
-                <!-- /post-container -->
-                <div class='post-container'>
-                    <div class='post-119 post type-post status-publish format-image has-post-thumbnail hentry category-design category-fashion tag-bottle-watch tag-watch post_format-post-format-image' id='post-119'>
-                        <div class='featured-media'>
-                            <img alt='bottle-watch' class='attachment-post-thumb size-post-thumb wp-post-image' height='536' sizes='(max-width: 508px) 100vw, 508px' src='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/bottle-watch-508x536.jpg' srcset='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/bottle-watch-969x1024.jpg 969w, http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/bottle-watch-508x536.jpg 508w, http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/bottle-watch.jpg 973w' width='508'>
-                            <a class='post-overlay' href='http://www.andersnoren.se/themes/fukasawa/bottle-watch/' rel='bookmark' title='Bottle Watch'>
-                                <p class='view'>View →</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- /featured-media -->
-                <!-- /post -->
-                <!-- /post-container -->
-                <div class='post-container'>
-                    <div class='post-117 post type-post status-publish format-video hentry category-design category-media tag-gary-hustwit tag-objectified post_format-post-format-video' id='post-117'>
-                        <div class='post-excerpt'>
-                            <p>Сегодня, Фотоальбом не потерял своей актуальности, он воплотился в более изящную форму, позволив выбрать лучшее из цифровых фотографий и претворить в жизнь! Фотокнига - замечательный способ сохранить воспоминания! Предлагаю создать Фотокнигу по индивидуальному проекту.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- /post-excerpt -->
-                <!-- /post -->
-                <!-- /post -->
-                <div class='post-container'>
-                    <div class='post-114 post type-post status-publish format-image has-post-thumbnail hentry category-design category-furniture category-interior-design tag-chair tag-oato tag-stefan-tervoort post_format-post-format-image' id='post-114'>
-                        <div class='featured-media'>
-                            <img alt='Beam' class='attachment-post-thumb size-post-thumb wp-post-image' height='560' sizes='(max-width: 508px) 100vw, 508px' src='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/beam-oato-chair-508x560.jpg' srcset='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/beam-oato-chair-508x560.jpg 508w, http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/beam-oato-chair.jpg 973w' width='508'>
-                            <a class='post-overlay' href='http://www.andersnoren.se/themes/fukasawa/beam/' rel='bookmark' title='Beam'>
-                                <p class='view'>View →</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- /featured-media -->
-                <!-- /post -->
-                <!-- /post-container -->
-                <div class='post-container'>
-                    <div class='post-111 post type-post status-publish format-image has-post-thumbnail hentry category-architecture category-interior-design tag-blantyre post_format-post-format-image' id='post-111'>
-                        <div class='featured-media'>
-                            <img alt='blantyre-house' class='attachment-post-thumb size-post-thumb wp-post-image' height='667' sizes='(max-width: 508px) 100vw, 508px' src='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/blantyre-house-508x667.jpg' srcset='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/blantyre-house-779x1024.jpg 779w, http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/blantyre-house-508x667.jpg 508w, http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/blantyre-house.jpg 973w' width='508'>
-                            <a class='post-overlay' href='http://www.andersnoren.se/themes/fukasawa/blantyre-house/' rel='bookmark' title='Blantyre House'>
-                                <p class='view'>View →</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- /featured-media -->
-                <!-- /post -->
-                <!-- /post-container -->
-                <div class='post-container'>
-                    <div class='post-69 post type-post status-publish format-image has-post-thumbnail hentry category-architecture tag-keisuke-maeda post_format-post-format-image' id='post-69'>
-                        <div class='featured-media'>
-                            <img alt='atelier-bisque-doll' class='attachment-post-thumb size-post-thumb wp-post-image' height='350' sizes='(max-width: 508px) 100vw, 508px' src='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/atelier-bisque-doll-508x350.jpg' srcset='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/atelier-bisque-doll-508x350.jpg 508w, http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/atelier-bisque-doll.jpg 973w' width='508'>
-                            <a class='post-overlay' href='http://www.andersnoren.se/themes/fukasawa/atelier-bisque-doll/' rel='bookmark' title='Atelier-Bisque Doll'>
-                                <p class='view'>View →</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- /featured-media -->
-                <!-- /post -->
-                <!-- /post-container -->
-                <div class='post-container'>
-                    <div class='post-66 post type-post status-publish format-image has-post-thumbnail hentry category-interior-design category-living tag-mamba tag-mamba-light tag-victor-vasilev post_format-post-format-image' id='post-66'>
-                        <div class='featured-media'>
-                            <img alt='Mamba and Mamba Light' class='attachment-post-thumb size-post-thumb wp-post-image' height='653' sizes='(max-width: 508px) 100vw, 508px' src='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/mamba-mamba-light-508x653.jpg' srcset='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/mamba-mamba-light-796x1024.jpg 796w, http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/mamba-mamba-light-508x653.jpg 508w, http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/mamba-mamba-light.jpg 973w' width='508'>
-                            <a class='post-overlay' href='http://www.andersnoren.se/themes/fukasawa/mamba-and-mamba-light/' rel='bookmark' title='Mamba and Mamba Light'>
-                                <p class='view'>View →</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- /featured-media -->
-                <!-- /post -->
-                <!-- /post-container -->
-                <div class='post-container'>
-                    <div class='post-63 post type-post status-publish format-standard has-post-thumbnail hentry category-architecture category-interior-design tag-etnia' id='post-63'>
-                        <a class='featured-media' href='http://www.andersnoren.se/themes/fukasawa/etnia-shops/' title='Etnia Shops'>
-                            <img alt='etnia' class='attachment-post-thumb size-post-thumb wp-post-image' height='286' sizes='(max-width: 508px) 100vw, 508px' src='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/etnia-508x286.jpg' srcset='http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/etnia-508x286.jpg 508w, http://www.andersnoren.se/themes/fukasawa/wp-content/uploads/2014/08/etnia.jpg 973w' width='508'>
-                        </a>
-                        <!-- /featured-media -->
-                        <div class='post-header'>
-                            <h2 class='post-title'>
-                                <a href='http://www.andersnoren.se/themes/fukasawa/etnia-shops/' title='Etnia Shops'>Etnia Shops</a>
-                            </h2>
-                        </div>
-                        <!-- /post-header -->
-                        <div class='post-excerpt'>
-                            <p>
-                                Last year, the successful Spanish studio Lavernia &amp; Cienfuegos designed the Etnia
-                                Shops, including the furniture and the image, for the brand Etnia Cosmetics, resulting in a
-                                remarkable project. The…
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                    {% endif %}
+                {% endfor %}
             </div>
         </div>
     </div>

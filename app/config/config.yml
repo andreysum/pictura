@@ -73,3 +73,6 @@ assetic:
         scss:
             bin: '/usr/bin/scss'
             apply_to: '\.scss$'
+
+gregwar_image:
+    cache_dir:  cache
