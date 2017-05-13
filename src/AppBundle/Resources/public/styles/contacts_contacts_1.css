@@ -1,0 +1,36 @@
+ul.contacts {
+  font-size: larger; }
+  ul.contacts li {
+    list-style: none;
+    height: 100px; }
+    ul.contacts li div {
+      display: inline-block;
+      vertical-align: middle; }
+    ul.contacts li.mail::before {
+      content: "";
+      background: url("../../../../bundles/app/images/contacts/mail.png") no-repeat 50%;
+      width: 100px;
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%; }
+    ul.contacts li.mobile::before {
+      content: "";
+      background: url("../../../../bundles/app/images/contacts/mobile.png") no-repeat 50%;
+      width: 100px;
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%; }
+    ul.contacts li.vk::before {
+      content: "";
+      background: url("../../../../bundles/app/images/contacts/vk.png") no-repeat 50%;
+      width: 100px;
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%; }
+    ul.contacts li.f::before {
+      content: "";
+      background: url("../../../../bundles/app/images/contacts/f.png") no-repeat 50%;
+      width: 100px;
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%; }

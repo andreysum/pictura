@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="wrapper" class="wrapper">
+        <div class="content thin">
+            <div class='post single post-7 page type-page status-publish hentry'>
+                <div class='post-inner'>
+                    <!-- /post-header section -->
+                    <div class='post-content'>
+                        <ul class='contacts'>
+                            <li class='mail'>
+                                <div>
+                                    <a href='mailto:weir521@yandex.ru'>
+                                        weir521@yandex.ru
+                                    </a>
+                                </div>
+                                <span class='mid'></span>
+                            </li>
+                            <li class='mobile'>
+                                <div>
+                                    8 (911) 713-777-2
+                                </div>
+                            </li>
+                            <li class='vk'>
+                                <div>
+                                    <a href='http://vk.com/irinabird'>
+                                        vk.com/irinabird
+                                    </a>
+                                    <br>
+                                    <a href='http://vk.com/irinak_foto'>
+                                        vk.com/irinak_foto
+                                    </a>
+                                </div>
+                            </li>
+                            <li class='f'>
+                                <div>
+                                    <a href='http://www.facebook.com/irina.kalapyshina'>
+                                        www.facebook.com/irina.kalapyshina
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block stylesheets %}
+    {% stylesheets 'bundles/app/styles/contacts.scss' output='bundles/app/styles/contacts.css' filter='cssrewrite'%}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css" media='all'/>
+    {% endstylesheets %}
+{% endblock %}
+

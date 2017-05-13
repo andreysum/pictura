@@ -7,38 +7,50 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Yaml\Yaml;
 
-class DefaultController extends Controller
+class DefaultController extends PicturaController
 {
-
-    private $baseDir = '';
     /**
      * @Route("/", name="homepage")
      */
     public function indexAction(Request $request)
     {
-        $menu = array(
-            'about' => array(
-                'title' => 'about',
-                'url' => 'about/',
-            ),
+        $posts = $this->getIndexPosts();
 
-            'contacts' => array(
-                'title' => 'contacts',
-                'url' => 'contacts/',
-            ),
+        $this->renderParams['posts'] = $posts;
+        $this->renderParams['base_dir'] = $this->getBaseDir();
 
-            'exhibitions' => array(
-                'title' => 'exhibitions',
-                'url' => 'exhibitions/',
-            ),
+        return $this->render('default/index.html.twig', $this->renderParams);
+    }
 
-            'reviews' => array(
-                'title' => 'reviews',
-                'url' => 'reviews/',
-            ),
+    private function getPostContents() {
+        return json_decode(file_get_contents($this->getBaseDir().'bundles/app/content.json'), true);
+    }
 
-        );
+    /**
+     * Выбирает из папки web/bundles/app/images/index файлы изображений поддерживаемых форматов (jpg, png, gif, jpeg) и формирует массив из их имен
+     * @return array
+     */
+    private function getPostImageNames() {
+        $imageNames = array();
+        if ($handle = opendir($this->getBaseDir().'bundles/app/images/index')) {
+            while (false !== ($entry = readdir($handle))) {
 
+                if ($entry != "." && $entry != ".." && (preg_match("/^[^\.]+\.(?:jpg|png|gif|jpeg)$/i", $entry) == 1)) {
+                    $imageNames[] = $entry;
+                }
+            }
+            closedir($handle);
+        }
+
+        return $imageNames;
+    }
+
+    /**
+     * Формирует блок постов, состоящий либо из изображений, либо из текстовых блоков.
+     * @return array - набор постов, содержащих тип и содержимое.
+     */
+    private function getIndexPosts()
+    {
         $postContents = $this->getPostContents();
         $postTexts = $postContents['index']['posts'];
         $imageNames = $this->getPostImageNames();
@@ -66,31 +78,6 @@ class DefaultController extends Controller
                 $posts[$i] = $replacedItem;
             }
         }
-        // replace this example code with whatever you need
-        $this->baseDir = realpath($this->container->getParameter('kernel.root_dir') . '/..') . DIRECTORY_SEPARATOR;
-        return $this->render('default/index.html.twig', array(
-            'base_dir' => $this->baseDir,
-            'menu' => $menu,
-            'posts' => $posts
-        ));
-    }
-
-    private function getPostContents() {
-        return json_decode(file_get_contents($this->baseDir.'bundles/app/content.json'), true);
-    }
-
-    private function getPostImageNames() {
-        $imageNames = array();
-        if ($handle = opendir($this->baseDir.'bundles/app/images/index')) {
-            while (false !== ($entry = readdir($handle))) {
-
-                if ($entry != "." && $entry != ".." && (preg_match("/^[^\.]+\.(?:jpg|png|gif|jpeg)$/i", $entry) == 1)) {
-                    $imageNames[] = $entry;
-                }
-            }
-            closedir($handle);
-        }
-
-        return $imageNames;
+        return $posts;
     }
 }

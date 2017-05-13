@@ -1,0 +1,29 @@
+@mixin li_icon($name) {
+  &.#{$name}::before {
+    content: "";
+    background: url("../images/contacts/#{$name}.png") no-repeat 50%;
+    width: 100px;
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+  }
+}
+
+ul.contacts {
+  font-size: larger;
+
+  li {
+    list-style: none;
+    height: 100px;
+
+    div {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    @include li_icon("mail");
+    @include li_icon("mobile");
+    @include li_icon("vk");
+    @include li_icon("f");
+  }
+}
