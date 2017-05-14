@@ -756,7 +756,8 @@ body a, .widget_fukasawa_recent_posts a:hover .title, .widget_fukasawa_recent_co
   width: 620px;
   max-width: 85%;
   padding: 7.5% 0;
-  margin: 0 auto; }
+  margin: 0 auto;
+  overflow: hidden; }
 
 /* Post header  ----------------------------------------- */
 .post.single .post-title {

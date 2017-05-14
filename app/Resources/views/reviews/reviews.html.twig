@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="wrapper" class="wrapper">
+        <div class="content thin">
+            <div class='post single post-7 page type-page status-publish hentry'>
+
+                <div class='post-inner'>
+                    <!-- /post-header section -->
+                    <div class='post-content'>
+                        <img class='alignleft' height='600' width='400' src="{{ image('bundles/app/images/reviews/IMG_6575.jpg').resize('400') }}"/>
+                        {#<img alt='nf-6' class='alignleft' height='600' src='images/small/IMG_6575_small.jpg' width='400'>#}
+                        The photograph has a feel of the 1970s, in particular because of the tone of the colour, which has that of some of the washed-out colour emulsions of that time and cross processing of E6 and C41 or that time. What works well in the photograph is how our attention is drawn, like that of the girl, towards the fish, and so we have a sense of sharing the moment. Also the fish, on a different level, conjure up the many children’s stories associated with goldfish. Also there is a very shallow depth of field which works well in bringing our secondary focus to the girl’s eyes and her simple joy of holding this jar filled with fish.
+                        <p>
+                            Джеймс хилл. Фотограф и фотожурналист.
+                            <br>
+                            <a src='http://photo.epson.ru/review/2015/11/06'>
+                                photo.epson.ru/review/2015/11/06
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class='post-inner'>
+                    <!-- /post-header section -->
+                    <div class='post-content'>
+                        <img class='alignleft' height='400' width='600' src="{{ image('bundles/app/images/reviews/IMG_6579.jpg').resize('600') }}"/>
+                        {#<img alt='nf-6' class='alignleft' height='600' src='images/small/IMG_6579_small.jpg' width='400'>#}
+                        "Северный праздник". Фотография-финалист этапа "Событие" фотоконкурса Epson.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block stylesheets %}
+    {% stylesheets 'bundles/app/styles/contacts.scss' output='bundles/app/styles/contacts.css' filter='cssrewrite'%}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css" media='all'/>
+    {% endstylesheets %}
+{% endblock %}
+
