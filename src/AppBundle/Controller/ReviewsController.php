@@ -11,10 +11,10 @@ class ReviewsController extends PicturaController
 {
 
     /**
-     * @Route("/reviews/")
+     * @Route("/reviews", name="reviews")
      */
     public function reviewsAction(Request $request)
     {
-        return $this->render('reviews/reviews.html.twig', $this->renderParams);
+        return $this->render('reviews/reviews.html.twig');
     }
 }

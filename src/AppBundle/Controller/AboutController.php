@@ -7,14 +7,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Yaml\Yaml;
 
-class ContactsController extends PicturaController
+class AboutController extends PicturaController
 {
-
     /**
-     * @Route("/contacts", name="contacts")
+     * @Route("/about", name="about")
      */
-    public function contactsAction(Request $request)
+    public function aboutAction(Request $request)
     {
-        return $this->render('contacts/contacts.html.twig');
+        return $this->render('about/about.html.twig');
     }
 }

@@ -150,9 +150,9 @@ img {
     margin-top: 50px; }
 
 .galleria {
-  max-width: 700px;
-  height: 400px;
-  background: #000; }
+  max-width: 95%;
+  height: 800px;
+  background: #FFF; }
 
 /* Columns --------------------------------------- */
 .one-fourth {
@@ -753,7 +753,6 @@ body a, .widget_fukasawa_recent_posts a:hover .title, .widget_fukasawa_recent_co
   background: #fff; }
 
 .post-inner {
-  width: 620px;
   max-width: 85%;
   padding: 7.5% 0;
   margin: 0 auto;

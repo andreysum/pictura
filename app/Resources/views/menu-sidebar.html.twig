@@ -1,0 +1,78 @@
+<!-- /mobile-navigation -->
+<div class='mobile-navigation'>
+    <ul class='mobile-menu'>
+        {% for menu_item in menu %}
+            <li class='menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-6' id='menu-item-6'>
+                <a href='{{ path(menu_item.url) }}'>{{ menu_item.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- /sidebar -->
+<div class='sidebar'>
+    <h1 class='blog-title'>
+        <a href='{{ url('homepage') }}' rel='/'>Pictura</a>
+    </h1>
+    <a class='nav-toggle hidden' href='#' title='Click to view the navigation'>
+        <div class='bars'>
+            <div class='bar'></div>
+            <div class='bar'></div>
+            <div class='bar'></div>
+            <div class='clear'></div>
+        </div>
+        <p>
+            <span class='menu'>Menu</span>
+            <span class='close'>Close</span>
+        </p>
+    </a>
+    <ul class='main-menu'>
+        {% for menu_item in menu %}
+            <li class='menu-item menu-item-type-post_type menu-item-object-page menu-item-6'>
+                <a href='{{ path(menu_item.url) }}'>{{ menu_item.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class='widgets'>
+        <div class='widget widget_text'>
+            <div class='widget-content'>
+                <div class='textwidget'>
+                    <p>Добро пожаловать на сайт Pictura. Меня зовут Ирина. Я — семейный фотограф. Приятного просмотра!</p>
+                    <p>
+                        Содействие в разработке сайта —
+                        <a href='https://vk.com/andreysum'>Андрей Сумцов</a>.
+                        <a href='http://www.andersnoren.se/themes/fukasawa/'>Fukasawa</a>.
+                    </p>
+                </div>
+            </div>
+            <div class='clear'></div>
+        </div>
+        <div class='widget widget_categories'>
+            <div class='widget-content'>
+                <ul>
+                    {% for category in categories %}
+                        <li class='cat-item cat-item-14'>
+                            <a href='{{ url('categories', {'category':category.id}) }}'>{{ category.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class='clear'></div>
+        </div>
+    </div>
+    <div class='credits'>
+        <p>
+            © 2017
+            <a href='http://www.andersnoren.se/themes/fukasawa/'>Fukasawa</a>.
+        </p>
+        <p>
+            Powered by
+            <a href='http://www.wordpress.org'>WordPress</a>.
+        </p>
+        <p>
+            Theme by
+            <a href='http://www.andersnoren.se'>Anders Norén</a>.
+        </p>
+    </div>
+    <div class='clear'></div>
+</div>

@@ -46,123 +46,19 @@
 #}
     </head>
     <body class='home blog wp-is-not-mobile infinite-scroll'>
-        <!-- /mobile-navigation -->
-        <div class='mobile-navigation'>
-            <ul class='mobile-menu'>
-                <li class='menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-6' id='menu-item-6'>
-                    <a href='{{ menu.about.url }}'>{{ menu.about.title }}</a>
-                </li>
-                <li class='menu-item menu-item-type-post_type menu-item-object-page menu-item-16' id='menu-item-16'>
-                    <a href='{{ menu.contacts.url }}'>{{ menu.contacts.title }}</a>
-                </li>
-                <li class='menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-17' id='menu-item-17'>
-                    <a href='{{ menu.exhibitions.url }}'>{{ menu.exhibitions.title }}</a>
-                </li>
-                <li class='menu-item menu-item-type-post_type menu-item-object-page menu-item-14' id='menu-item-14'>
-                    <a href='{{ menu.reviews.url }}'>{{ menu.reviews.title }}</a>
-                </li>
-            </ul>
-        </div>
+        {{ render(controller('AppBundle:Pictura:navigation')) }}
+        {% javascripts '@AppBundle/Resources/public/js/jquery/jquery.js' output='bundles/app/js/jquery/jquery.js' filter='cssrewrite'%}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% javascripts '@AppBundle/Resources/public/js/masonry/masonry.min.js' output='bundles/app/js/masonry/masonry.min.js' filter='cssrewrite'%}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% javascripts '@AppBundle/Resources/public/js/global.js' output='bundles/app/js/global.js' filter='cssrewrite'%}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
 
-        <!-- /sidebar -->
-        <div class='sidebar'>
-            <h1 class='blog-title'>
-                <a href='/' rel='/'>Pictura</a>
-            </h1>
-            <a class='nav-toggle hidden' href='#' title='Click to view the navigation'>
-                <div class='bars'>
-                    <div class='bar'></div>
-                    <div class='bar'></div>
-                    <div class='bar'></div>
-                    <div class='clear'></div>
-                </div>
-                <p>
-                    <span class='menu'>Menu</span>
-                    <span class='close'>Close</span>
-                </p>
-            </a>
-            <ul class='main-menu'>
-                <li class='menu-item menu-item-type-post_type menu-item-object-page menu-item-6'>
-                    <a href='{{ menu.about.url }}'>{{ menu.about.title }}</a>
-                </li>
-                <li class='menu-item menu-item-type-post_type menu-item-object-page menu-item-16'>
-                    <a href='{{ menu.contacts.url }}'>{{ menu.contacts.title }}</a>
-                </li>
-                <li class='menu-item menu-item-type-custom menu-item-object-page menu-item-17'>
-                    <a href='{{ menu.exhibitions.url }}'>{{ menu.exhibitions.title }}</a>
-                </li>
-                <li class='menu-item menu-item-type-post_type menu-item-object-page menu-item-14'>
-                    <a href='{{ menu.reviews.url }}'>{{ menu.reviews.title }}</a>
-                </li>
-            </ul>
-            <div class='widgets'>
-                <div class='widget widget_text'>
-                    <div class='widget-content'>
-                        <div class='textwidget'>
-                            <p>Добро пожаловать на сайт Pictura. Меня зовут Ирина. Я — семейный фотограф. Приятного просмотра!</p>
-                            <p>
-                                Содействие в разработке сайта —
-                                <a href='https://vk.com/andreysum'>Андрей Сумцов</a>.
-                                <a href='http://www.andersnoren.se/themes/fukasawa/'>Fukasawa</a>.
-                            </p>
-                        </div>
-                    </div>
-                    <div class='clear'></div>
-                </div>
-                <div class='widget widget_categories'>
-                    <div class='widget-content'>
-                        <ul>
-                            <li class='cat-item cat-item-14'>
-                                <a href='http://www.andersnoren.se/themes/fukasawa/category/architecture/'>family</a>
-                            </li>
-                            <li class='cat-item cat-item-3'>
-                                <a href='http://www.andersnoren.se/themes/fukasawa/category/design/'>portrait</a>
-                            </li>
-                            <li class='cat-item cat-item-10'>
-                                <a href='http://www.andersnoren.se/themes/fukasawa/category/fashion/'>children</a>
-                            </li>
-                            <li class='cat-item cat-item-27'>
-                                <a href='http://www.andersnoren.se/themes/fukasawa/category/furniture/'>wedding</a>
-                            </li>
-                            <li class='cat-item cat-item-15'>
-                                <a href='http://www.andersnoren.se/themes/fukasawa/category/interior-design/'>albums</a>
-                            </li>
-                            <li class='cat-item cat-item-6'>
-                                <a href='http://www.andersnoren.se/themes/fukasawa/category/living/'>creative search</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class='clear'></div>
-                </div>
-            </div>
-            <div class='credits'>
-                <p>
-                    © 2017
-                    <a href='http://www.andersnoren.se/themes/fukasawa/'>Fukasawa</a>.
-                </p>
-                <p>
-                    Powered by
-                    <a href='http://www.wordpress.org'>WordPress</a>.
-                </p>
-                <p>
-                    Theme by
-                    <a href='http://www.andersnoren.se'>Anders Norén</a>.
-                </p>
-            </div>
-            <div class='clear'></div>
-        </div>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
-
-        {% javascripts '@AppBundle/Resources/public/js/jquery/jquery.js' output='bundles/app/scripts/jquery/jquery.js' filter='cssrewrite'%}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-        {% javascripts '@AppBundle/Resources/public/js/masonry/masonry.min.js' output='bundles/app/scripts/masonry/masonry.min.js' filter='cssrewrite'%}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-        {% javascripts '@AppBundle/Resources/public/js/global.js' output='bundles/app/scripts/global.js' filter='cssrewrite'%}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}
 
     </body>
 </html>

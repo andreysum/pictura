@@ -14,12 +14,9 @@ class DefaultController extends PicturaController
      */
     public function indexAction(Request $request)
     {
-        $posts = $this->getIndexPosts();
+        $this->setRenderParam('posts', $this->getIndexPosts());
 
-        $this->renderParams['posts'] = $posts;
-        $this->renderParams['base_dir'] = $this->getBaseDir();
-
-        return $this->render('default/index.html.twig', $this->renderParams);
+        return $this->render('default/index.html.twig', $this->getRenderParams());
     }
 
     private function getPostContents() {
@@ -31,18 +28,11 @@ class DefaultController extends PicturaController
      * @return array
      */
     private function getPostImageNames() {
-        $imageNames = array();
-        if ($handle = opendir($this->getBaseDir().'bundles/app/images/index')) {
-            while (false !== ($entry = readdir($handle))) {
+        return $this->getImageNames($this->getBaseDir().'bundles/app/images/index');
+    }
 
-                if ($entry != "." && $entry != ".." && (preg_match("/^[^\.]+\.(?:jpg|png|gif|jpeg)$/i", $entry) == 1)) {
-                    $imageNames[] = $entry;
-                }
-            }
-            closedir($handle);
-        }
-
-        return $imageNames;
+    private function getCategories() {
+        return $this->getDirNames($this->getBaseDir().'bundles/app/images/categories');
     }
 
     /**

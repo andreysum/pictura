@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="wrapper" class="wrapper">
+        <div class="content thin">
+                    <!-- /post-header section -->
+                    <div class='post-content'>
+                        <div class="galleria">
+                            {% for photo in photos %}
+                                <a href="{{ image('bundles/app/images/'~photo).resize('1000') }}"><img src="{{ image('bundles/app/images/'~photo).resize('80') }}" data-big="{{ image('bundles/app/images/'~photo) }}" data-thumb="{{ image('bundles/app/images/'~photo).resize('80') }}"/>
+                            {% endfor %}
+                        </div>
+                    </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts '@AppBundle/Resources/public/js/galleria/galleria-1.5.5.js' output='bundles/app/js/galleria/galleria-1.5.5.js' filter='cssrewrite'%}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <script>
+        (function() {
+            // Galleria.loadTheme('{#{ asset('bundles/app/js/galleria/themes/classic/galleria.classic.min.js') }#}');
+            Galleria.loadTheme('{{ asset('bundles/app/js/galleria/themes/classic/galleria.classic.min.js') }}');
+            Galleria.configure({
+                lightbox: true,
+            });
+            Galleria.run('.galleria');
+        }());
+        /*
+        Galleria.ready(function() {
+            var gallery = this;
+            this.bind('image', function(e) {
+                jQuery(e.imageTarget).unbind('click').click(function() {
+                    gallery.toggleFullscreen();
+                });
+            });
+        });
+        */
+    </script>
+{% endblock %}
+
