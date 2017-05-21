@@ -3,14 +3,17 @@
 {% block body %}
     <div id="wrapper" class="wrapper">
         <div class="content thin">
-                    <!-- /post-header section -->
-                    <div class='post-content'>
-                        <div class="galleria">
-                            {% for photo in photos %}
-                                <a href="{{ image('bundles/app/images/'~photo).resize('1000') }}"><img src="{{ image('bundles/app/images/'~photo).resize('80') }}" data-big="{{ image('bundles/app/images/'~photo) }}" data-thumb="{{ image('bundles/app/images/'~photo).resize('80') }}"/>
-                            {% endfor %}
-                        </div>
+            <div class="post-inner">
+                <div class='post-content'>
+                    {% if photos|length > 0 %}
+                    <div class="galleria">
+                        {% for photo in photos %}
+                            <a href="{{ image('bundles/app/images/'~photo).resize('1000') }}"><img src="{{ image('bundles/app/images/'~photo).resize('80') }}" data-big="{{ image('bundles/app/images/'~photo) }}"/>
+                        {% endfor %}
                     </div>
+                    {% endif %}
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}
@@ -20,6 +23,7 @@
         <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
     <script>
+        {% if photos|length > 0 %}
         (function() {
             // Galleria.loadTheme('{#{ asset('bundles/app/js/galleria/themes/classic/galleria.classic.min.js') }#}');
             Galleria.loadTheme('{{ asset('bundles/app/js/galleria/themes/classic/galleria.classic.min.js') }}');
@@ -28,6 +32,7 @@
             });
             Galleria.run('.galleria');
         }());
+        {% endif %}
         /*
         Galleria.ready(function() {
             var gallery = this;

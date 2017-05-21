@@ -5,11 +5,45 @@
       "Второй пост с текстом."
     ]
   },
+
   "categories" : {
+    "portrait" : [
+        "categories/portrait/П-1_.jpg",
+        "categories/portrait/П-2_1.jpg",
+        "categories/portrait/П-2__-.jpg",
+        "categories/portrait/П-3.jpg",
+        "categories/portrait/П-7_2.jpg"
+    ],
     "children" : [
         "categories/children/д-4.jpg",
         "categories/children/д-5.jpg",
         "categories/children/д-6.jpg"
+    ],
+    "wedding" : [
+        "categories/wedding/w-1.jpg",
+        "categories/wedding/w-2.jpg",
+        "categories/wedding/w-3.jpg"
+    ],
+    "family" : [
+      "categories/family/С-4.jpg",
+      "categories/family/С-8.jpg"
     ]
-  }
+  },
+
+  "reviews" : [
+    {
+      "photo" : "img_9506.jpg",
+      "text" : "The photograph has a feel of the 1970s, in particular because of the tone of the colour, which has that of some of the washed-out colour emulsions of that time and cross processing of E6 and C41 or that time. What works well in the photograph is how our attention is drawn, like that of the girl, towards the fish, and so we have a sense of sharing the moment. Also the fish, on a different level, conjure up the many children’s stories associated with goldfish. Also there is a very shallow depth of field which works well in bringing our secondary focus to the girl’s eyes and her simple joy of holding this jar filled with fish.",
+      "author" : "Джеймс хилл. Фотограф и фотожурналист.",
+      "link" : {
+        "url" : "photo.epson.ru/review/2015/11/06",
+        "text" : "photo.epson.ru/review/2015/11/06"
+      }
+    },
+
+    {
+      "photo" : "img_2871.jpg",
+      "text" : "\"Северный праздник\". Фотография-финалист этапа \"Событие\" фотоконкурса Epson."
+    }
+  ]
 }

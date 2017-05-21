@@ -15,6 +15,15 @@ class ReviewsController extends PicturaController
      */
     public function reviewsAction(Request $request)
     {
-        return $this->render('reviews/reviews.html.twig');
+
+        return $this->render('reviews/reviews.html.twig', array( "reviews" => $this->getRevews()));
+    }
+
+    private function getRevews()
+    {
+        $content = json_decode(file_get_contents($this->getBaseDir().'bundles/app/content.json'), true);
+
+        return isset($content['reviews']) ? $content['reviews'] : array();
+
     }
 }
