@@ -1,8 +1,11 @@
 ul.contacts {
-  font-size: larger; }
+  font-size: larger;
+  height: 100%; }
   ul.contacts li {
     list-style: none;
     height: 100px; }
+    ul.contacts li .contact-label {
+      display: none; }
     ul.contacts li div {
       display: inline-block;
       vertical-align: middle; }
@@ -34,3 +37,17 @@ ul.contacts {
       display: inline-block;
       vertical-align: middle;
       height: 100%; }
+
+@media (max-width: 600px) {
+  ul.contacts {
+    font-size: 1em;
+    height: 100%; }
+    ul.contacts li div {
+      display: inline;
+      vertical-align: baseline;
+      margin-top: 10px; }
+    ul.contacts li .contact-label {
+      display: inline-block;
+      margin-bottom: -30px; }
+    ul.contacts li::before {
+      display: none !important; } }

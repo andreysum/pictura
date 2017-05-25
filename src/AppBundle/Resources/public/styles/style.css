@@ -151,7 +151,6 @@ img {
 
 .galleria {
   max-width: 95%;
-  height: 800px;
   background: #FFF; }
 
 /* Columns --------------------------------------- */
@@ -318,12 +317,10 @@ body a, .widget_fukasawa_recent_posts a:hover .title, .widget_fukasawa_recent_co
   .main-menu .current-menu-item > a, .main-menu .current_page_item > a {
     color: #333; }
   .main-menu .current-menu-item:before, .main-menu .current_page_item:before {
-    content: '\f405';
+    content: '>';
     display: block;
-    font: 16px/1 "Genericons";
     color: #019EBD;
     position: absolute;
-    top: -1px;
     left: -20px; }
 
 /* -------------------------------------------------------------------------------- */
@@ -604,17 +601,19 @@ body a, .widget_fukasawa_recent_posts a:hover .title, .widget_fukasawa_recent_co
   overflow: visible !important;
   position: relative;
   width: 1200px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  column-count: 4;
+  column-gap: 1em; }
   .posts .post-container {
     width: 290px;
+    height: 290px;
     padding: 10px;
     overflow: hidden; }
     .posts .post-container.central {
       width: 580px;
-      height: 580px; }
+      height: auto; }
   .posts .post, .posts .page {
     width: 100%;
-    min-height: 270px;
     padding: 16px;
     background: #fff;
     position: relative; }
@@ -1054,6 +1053,9 @@ img.alignleft, .alignleft img, img.aligncenter, .aligncenter img, img.alignright
   box-sizing: border-box;
   padding: 5px;
   border: 1px solid #EEE; }
+
+img.alignright.about {
+  margin-top: 7em; }
 
 .post-content .alignleft, .post-content .alignright {
   margin-bottom: 1em;
@@ -1652,6 +1654,10 @@ img#wpstats {
 /* -------------------------------------------------------------------------------- */
 /*	13. Responsive
 /* -------------------------------------------------------------------------------- */
+@media (max-width: 1450px) {
+  .posts {
+    width: 900px;
+    column-count: 3; } }
 @media (max-width: 1200px) {
   /* structure */
   .section {
@@ -1667,8 +1673,12 @@ img#wpstats {
     padding: 0; }
 
   /* blog */
-  .posts .post-container {
-    width: 50%; } }
+  img.alignright.about {
+    margin-top: 5em; } }
+@media (max-width: 1160px) {
+  .posts {
+    width: 600px;
+    column-count: 2; } }
 @media (max-width: 1000px) {
   /* structure */
   .wrapper {
@@ -1700,6 +1710,8 @@ img#wpstats {
 
   .blog-title {
     margin-right: 120px; }
+    .blog-title a {
+      margin-left: auto; }
 
   /* mobile menu */
   .mobile-navigation {
@@ -1726,9 +1738,8 @@ img#wpstats {
     .mobile-menu > .current-menu-item > a, .mobile-menu > .current_page_item > a {
       color: #fff; }
     .mobile-menu .current-menu-item:before, .mobile-menu .current_page_item:before {
-      content: '\f405';
+      content: '>';
       display: block;
-      font: 16px/1 "Genericons";
       color: #019EBD;
       position: absolute;
       left: -19px;
@@ -1802,13 +1813,14 @@ img#wpstats {
       .nav-toggle.active .close {
         display: block; }
 
-  /* blog */
-  .posts .post-container {
-    width: 50%; } }
+  /* blog */ }
 @media (max-width: 800px) {
   /* single post */
   .post-navigation a {
-    height: 100px; } }
+    height: 100px; }
+
+  img.alignright.about {
+    margin-top: 0; } }
 @media (max-width: 600px) {
   /* sidebar */
   .sidebar {
@@ -1820,11 +1832,18 @@ img#wpstats {
     letter-spacing: 2px; }
 
   /* blog */
-  .posts .post-container {
+  .posts {
     width: 100%;
-    padding: 0; }
-    .posts .post-container + .post-container {
-      margin-top: 20px; }
+    padding: 0;
+    column-count: 1; }
+    .posts .post-container {
+      width: 290px;
+      height: auto;
+      padding: 5px; }
+      .posts .post-container.central {
+        width: 290px; }
+      .posts .post-container + .post-container {
+        margin-top: 20px; }
 
   .load-container {
     margin-top: 30px; }
