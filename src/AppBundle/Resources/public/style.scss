@@ -187,7 +187,6 @@ img {
 
 .galleria {
   max-width: 95%;
-  height: 800px;
   background: #FFF
 }
 
@@ -391,12 +390,11 @@ body a, .widget_fukasawa_recent_posts a:hover .title, .widget_fukasawa_recent_co
     color: #333;
   }
   .current-menu-item:before, .current_page_item:before {
-    content: '\f405';
+    content: '>';
     display: block;
-    font: 16px/1 "Genericons";
+    //font: 16px/1 "Genericons";
     color: #019EBD;
     position: absolute;
-    top: -1px;
     left: -20px;
   }
 }
@@ -763,18 +761,20 @@ body a, .widget_fukasawa_recent_posts a:hover .title, .widget_fukasawa_recent_co
   position: relative;
   width: 1200px;
   margin: 0 auto;
+  column-count: 4;
+  column-gap: 1em;
   .post-container {
     width: 290px;
+    height: 290px;
     padding: 10px;
     overflow: hidden;
     &.central {
       width: 580px;
-      height: 580px;
+      height: auto;
     }
   }
   .post, .page {
     width: 100%;
-    min-height: 270px;
     padding: 16px;
     background: #fff;
     position: relative;
@@ -1375,6 +1375,12 @@ img.alignleft, .alignleft img, img.aligncenter, .aligncenter img, img.alignright
   box-sizing: border-box;
   padding: 5px;
   border: 1px solid #EEE;
+}
+
+img.alignright {
+  &.about {
+    margin-top: 7em;
+  }
 }
 
 .post-content {
@@ -2175,6 +2181,13 @@ img#wpstats {
 /*	13. Responsive
 /* -------------------------------------------------------------------------------- */
 
+@media (max-width: 1450px) {
+  .posts {
+    width: 900px;
+    column-count: 3;
+  }
+}
+
 @media (max-width: 1200px) {
   /* structure */
   .section {
@@ -2191,7 +2204,21 @@ img#wpstats {
   }
   /* blog */
   .posts .post-container {
-    width: 50%;
+    //width: 50%;
+  }
+
+  img.alignright {
+    &.about {
+      margin-top: 5em;
+    }
+  }
+
+}
+
+@media (max-width: 1160px) {
+  .posts {
+    width: 600px;
+    column-count: 2;
   }
 }
 
@@ -2228,6 +2255,9 @@ img#wpstats {
   }
   .blog-title {
     margin-right: 120px;
+    a {
+      margin-left: auto;
+    }
   }
   /* mobile menu */
   .mobile-navigation {
@@ -2262,9 +2292,8 @@ img#wpstats {
       }
     }
     .current-menu-item:before, .current_page_item:before {
-      content: '\f405';
+      content: '>';
       display: block;
-      font: 16px/1 "Genericons";
       color: #019EBD;
       position: absolute;
       left: -19px;
@@ -2359,7 +2388,7 @@ img#wpstats {
   }
   /* blog */
   .posts .post-container {
-    width: 50%;
+    //width: 50%;
   }
 }
 
@@ -2367,6 +2396,11 @@ img#wpstats {
   /* single post */
   .post-navigation a {
     height: 100px;
+  }
+  img.alignright {
+    &.about {
+      margin-top: 0;
+    }
   }
 }
 
@@ -2381,11 +2415,20 @@ img#wpstats {
     letter-spacing: 2px;
   }
   /* blog */
-  .posts .post-container {
+  .posts {
     width: 100%;
     padding: 0;
-    + .post-container {
-      margin-top: 20px;
+    column-count: 1;
+    .post-container {
+      width: 290px;
+      height: auto;
+      padding: 5px;
+      &.central {
+        width: 290px;
+      }
+      + .post-container {
+        margin-top: 20px;
+      }
     }
   }
   .load-container {

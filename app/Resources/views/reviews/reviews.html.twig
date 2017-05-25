@@ -10,7 +10,7 @@
                         <!-- /post-header section -->
                             <div class='post-content'>
                             {% if (review.photo is defined) and (review.photo != '') %}
-                                <img class='alignleft' src="{{ image('bundles/app/images/reviews/'~review.photo).resize('500') }}"/>
+                                {#<a href="{{ url('categories', {'category': 'family'}) }}">#}<img class='alignleft' src="{{ image('bundles/app/images/reviews/'~review.photo).resize('500') }}" data-big="{{ image('bundles/app/images/reviews/'~review.photo) }}"/>{#</a>#}
                             {% endif %}
                             <p>{{ review.text }}</p>
 
@@ -39,3 +39,30 @@
     {% endstylesheets %}
 {% endblock %}
 
+{% block javascripts %}
+    {% javascripts '@AppBundle/Resources/public/js/galleria/galleria-1.5.5.js' output='bundles/app/js/galleria/galleria-1.5.5.js' filter='cssrewrite'%}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <script>
+        (function() {
+            // Galleria.loadTheme('{#{ asset('bundles/app/js/galleria/themes/classic/galleria.classic.min.js') }#}');
+            Galleria.loadTheme('{{ asset('bundles/app/js/galleria/themes/classic/galleria.classic.min.js') }}');
+            Galleria.configure({
+                lightbox: true,
+                thumbnails: false,
+                showImagenav: false,
+            });
+            //Galleria.run('.galleria');
+        }());
+        /*
+         Galleria.ready(function() {
+         var gallery = this;
+         this.bind('image', function(e) {
+         jQuery(e.imageTarget).unbind('click').click(function() {
+         gallery.toggleFullscreen();
+         });
+         });
+         });
+         */
+    </script>
+{% endblock %}

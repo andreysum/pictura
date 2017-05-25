@@ -11,10 +11,15 @@
 
 ul.contacts {
   font-size: larger;
+  height: 100%;
 
   li {
     list-style: none;
     height: 100px;
+
+    .contact-label {
+      display: none;
+    }
 
     div {
       display: inline-block;
@@ -25,5 +30,28 @@ ul.contacts {
     @include li_icon("mobile");
     @include li_icon("vk");
     @include li_icon("f");
+  }
+}
+
+@media (max-width: 600px) {
+  ul.contacts {
+    font-size: 1em;
+    height: 100%;
+
+    li {
+      div {
+        display: inline;
+        vertical-align: baseline;
+        margin-top: 10px;
+      }
+
+      .contact-label {
+        display: inline-block;
+        margin-bottom: -30px;
+      }
+      &::before {
+        display: none !important;
+      }
+    }
   }
 }
